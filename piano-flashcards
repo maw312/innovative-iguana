@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Piano Flashcards</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			padding: 20px;
+		}
+		h1 {
+			margin-bottom: 20px;
+		}
+		button {
+			margin-right: 10px;
+			margin-bottom: 10px;
+			padding: 5px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			background-color: #007bff;
+			color: #fff;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #0056b3;
+		}
+		#scale {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Piano Flashcards</h1>
+	<p>Select a scale:</p>
+	<select id="scale-select">
+		<option value="C Major">C Major</option>
+		<option value="G Major">G Major</option>
+		<option value="D Major">D Major</option>
+		<option value="A Major">A Major</option>
+		<option value="E Major">E Major</option>
+		<option value="B Major">B Major</option>
+		<option value="F# Major">F# Major</option>
+		<option value="C# Major">C# Major</option>
+		<option value="A Minor">A Minor</option>
+		<option value="E Minor">E Minor</option>
+		<option value="B Minor">B Minor</option>
+		<option value="F# Minor">F# Minor</option>
+		<option value="C# Minor">C# Minor</option>
+		<option value="G Minor">G Minor</option>
+		<option value="D Minor">D Minor</option>
+		<option value="F Major">F Major</option>
+		<option value="Bb Major">Bb Major</option>
+		<option value="Eb Major">Eb Major</option>
+		<option value="Ab Major">Ab Major</option>
+		<option value="Db Major">Db Major</option>
+		<option value="Gb Major">Gb Major</option>
+		<option value="C Minor">C Minor</option>
+		<option value="F Minor">F Minor</option>
+		<option value="Bb Minor">Bb Minor</option>
+		<option value="Eb Minor">Eb Minor</option>
+		<option value="Ab Minor">Ab Minor</option>
+		<option value="Db Minor">Db Minor</option>
+		<option value="Gb Minor">Gb Minor</option>
+	</select>
+	<button onclick="generateScale()">Generate Scale</button>
+	<div id="scale"></div>
+	<script>
+		function generateScale() {
+			var scales = [
+			"C Major",
+				"G Major",
+				"D Major",
+				"A Major",
+				"E Major",
+				"B Major",
+				"F# Major",
+				"C# Major",
+				"A Minor",
+				"E Minor",
+				"B Minor",
+				"F# Minor",
+				"C# Minor",
+				"G Minor",
+				"D Minor",
+				"F Major",
+				"Bb Major",
+				"Eb Major",
+				"Ab Major",
+				"Db Major",
+				"Gb Major",
+				"C Minor",
+				"F Minor",
+				"Bb Minor",
+				"Eb Minor",
+				"Ab Minor",
+				"Db Minor",
+				"Gb Minor"
+			];
+			var scaleSelect = document.getElementById("scale-select");
+			var selectedScale = scaleSelect.options[scaleSelect.selectedIndex].value;
+			var scale = selectedScale + " Grand Scale";
+			var randomScale = scales[Math.floor(Math.random() * scales.length)] + " Grand Scale";
+			while (randomScale === scale) {
+				randomScale = scales[Math.floor(Math.random() * scales.length)] + " Grand Scale";
+			}
+			document.getElementById("scale").innerHTML = randomScale;
+		}
+	</script>
+</body>
+</html>
